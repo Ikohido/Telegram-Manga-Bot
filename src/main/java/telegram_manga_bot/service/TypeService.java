@@ -1,4 +1,4 @@
-package com.bot.telegram_manga_bot.service;
+package telegram_manga_bot.service;
 
 import com.bot.telegram_manga_bot.repository.TypeRepository;
 import com.bot.telegram_manga_bot.repository.entity.MangaType;

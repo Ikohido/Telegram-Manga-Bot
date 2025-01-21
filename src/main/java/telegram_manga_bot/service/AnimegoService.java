@@ -1,4 +1,4 @@
-package com.bot.telegram_manga_bot.service;
+package telegram_manga_bot.service;
 
 import com.bot.telegram_manga_bot.client.AnimegoClient;
 import com.bot.telegram_manga_bot.repository.MangaEntityRepository;
@@ -13,6 +13,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 @AllArgsConstructor
@@ -23,7 +24,6 @@ public class AnimegoService {
     private final MangaEntityRepository mangaEntityRepository;
     private final TypeService typeService;
     private final GenreService genreService;
-
     public void getAllManga() {
 
 
@@ -37,7 +37,7 @@ public class AnimegoService {
             }
 
             List<String> mangaURLsByPage = parserService.getMangaLinks(htmlMangaByPageOptional.get());
-
+            AtomicInteger atomInt = new AtomicInteger(0);
             if (mangaURLsByPage.isEmpty()) break;
             List<MangaEntity> allMangaEntities = new ArrayList<>();
             mangaURLsByPage.stream()
@@ -49,6 +49,7 @@ public class AnimegoService {
                     .map(Optional::get)
                     .forEach(currentManga -> {
                         MangaEntity mangaEntity = toMangaEntity(currentManga);
+                        mangaEntity.setMangaUrl(mangaURLsByPage.get(atomInt.getAndIncrement()));
                         System.out.println(mangaEntity);
                         if (mangaEntityRepository.getMangaEntityByRusNameAndImgUrl(
                                 currentManga.getRusName(), currentManga.getImgUrl()).isPresent()

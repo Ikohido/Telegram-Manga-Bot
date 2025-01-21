@@ -1,4 +1,4 @@
-package com.bot.telegram_manga_bot.service.dto;
+package telegram_manga_bot.service.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

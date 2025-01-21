@@ -1,4 +1,4 @@
-package com.bot.telegram_manga_bot.repository;
+package telegram_manga_bot.repository;
 
 import com.bot.telegram_manga_bot.repository.entity.MangaEntity;
 import com.bot.telegram_manga_bot.repository.entity.MangaGenre;
@@ -23,10 +23,10 @@ public interface MangaEntityRepository extends JpaRepository<MangaEntity, Intege
     List<MangaEntity> getMangaEntitiesByCreatedAt(@Param("timestamp") Timestamp timestamp);
 
     @Query(value = "SELECT * FROM manga ORDER BY id LIMIT :count", nativeQuery = true)
-    List<MangaEntity> getMangaByBeginning(@Param("count") @Max(50) int count);
+    List<MangaEntity> getMangaByBeginning(@Param("count") @Max(20) int count);
 
     @Query(value = "SELECT * FROM manga ORDER BY id DESC LIMIT :count", nativeQuery = true)
-    List<MangaEntity> getMangaByEnd(@Param("count") @Max(50) int count);
+    List<MangaEntity> getMangaByEnd(@Param("count") @Max(20) int count);
 
     Optional<MangaEntity> getMangaEntityByRusNameAndImgUrl(String rusName, String coverUrl);
 

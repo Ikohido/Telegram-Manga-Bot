@@ -1,4 +1,4 @@
-package com.bot.telegram_manga_bot.repository.entity;
+package telegram_manga_bot.repository.entity;
 
 
 import jakarta.persistence.*;
@@ -29,6 +29,9 @@ public class MangaEntity {
     @Column(name = "eng_name")
     @EqualsAndHashCode.Exclude
     private String engName;
+    @URL
+    @Column(name = "manga_url")
+    private String mangaUrl;
     @URL
     @Column(name = "cover_url")
     @EqualsAndHashCode.Exclude

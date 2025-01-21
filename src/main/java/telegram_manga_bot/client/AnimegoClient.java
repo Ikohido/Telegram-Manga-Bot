@@ -1,4 +1,4 @@
-package com.bot.telegram_manga_bot.client;
+package telegram_manga_bot.client;
 
 import org.apache.hc.client5.http.impl.DefaultHttpRequestRetryStrategy;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;

@@ -1,4 +1,4 @@
-package com.bot.telegram_manga_bot.repository.entity;
+package telegram_manga_bot.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

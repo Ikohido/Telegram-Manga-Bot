@@ -1,4 +1,4 @@
-package com.bot.telegram_manga_bot.repository;
+package telegram_manga_bot.repository;
 
 import com.bot.telegram_manga_bot.repository.entity.MangaType;
 import org.springframework.data.jpa.repository.JpaRepository;

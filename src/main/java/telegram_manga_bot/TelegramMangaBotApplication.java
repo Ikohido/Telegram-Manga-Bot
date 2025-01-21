@@ -1,4 +1,4 @@
-package com.bot.telegram_manga_bot;
+package telegram_manga_bot;
 
 
 import lombok.AllArgsConstructor;

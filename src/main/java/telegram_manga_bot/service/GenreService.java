@@ -1,4 +1,4 @@
-package com.bot.telegram_manga_bot.service;
+package telegram_manga_bot.service;
 
 import com.bot.telegram_manga_bot.repository.GenreRepository;
 import com.bot.telegram_manga_bot.repository.entity.MangaGenre;
@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 public class GenreService {
     private final GenreRepository genreRepository;
     private final Map<String, MangaGenre> genreCache = new ConcurrentHashMap<>();
+
 
     public GenreService(GenreRepository genreRepository) {
         this.genreRepository = genreRepository;
