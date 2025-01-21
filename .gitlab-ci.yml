@@ -1,0 +1,17 @@
+stages:
+  - build
+
+build_project:
+  image: docker:25
+  stage: build
+  services:
+    - postgres:16
+  variables:
+    POSTGRES_DB: Telegram_Manga_Bot_Test
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: 26032004
+    POSTGRES_HOST_AUTH_METHOD: trust
+  script:
+    - apk add openjdk17-jdk
+    - chmod +x ./mvnw
+    - sleep 10 && ./mvnw clean install
